@@ -756,6 +756,9 @@ displayed.  The _WINDOW argument is currently unused."
 (defvar elpher-user-coding-system nil
   "User-specified coding system to use for decoding text responses.")
 
+(defvar elpher-fill-paragraph nil
+  "Whether to fill text paragraphs using `fill-paragraph`.")
+
 (defun elpher-decode (string)
   "Decode STRING using autodetected or user-specified coding system."
   (decode-coding-string string
@@ -1735,6 +1738,10 @@ width defined by `elpher-gemini-max-fill-width'."
                           (make-string (length (match-string 0 text-line)) ?\s)
                         "")))
     (insert (elpher-process-text-for-display processed-text-line))
+    (when elpher-fill-paragraph
+      (save-restriction
+        (narrow-to-region (line-beginning-position) (line-end-position))
+        (fill-paragraph)))
     (newline)))
 
 (defun elpher-gemini-pref-expand-collapse (button)
