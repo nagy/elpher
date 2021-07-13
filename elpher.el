@@ -1709,7 +1709,7 @@ by HEADER-LINE."
                           'face face
                           'gemini-heading t
                           'rear-nonsticky t))
-      (newline))))
+      (insert ?\n))))
 
 (defun elpher-gemini-insert-text (text-line)
   "Insert a plain non-preformatted TEXT-LINE into a text/gemini document.
