@@ -2598,7 +2598,7 @@ current page."
     (define-key map (kbd "F") 'elpher-forget-current-certificate)
     (when (fboundp 'evil-define-key*)
       (evil-define-key*
-        'motion map
+        '(motion normal) map
         (kbd "TAB") 'elpher-next-link
         (kbd "C-t") 'elpher-back
         (kbd "u") 'elpher-back
@@ -2642,8 +2642,8 @@ functions which initialize the client, namely
   (setq-local bookmark-make-record-function #'elpher-bookmark-make-record)
   (setq-local imenu-create-index-function #'elpher-build-current-imenu-index))
 
-(when (fboundp 'evil-set-initial-state)
-  (evil-set-initial-state 'elpher-mode 'motion))
+;; (when (fboundp 'evil-set-initial-state)       ;  WHY????
+;;   (evil-set-initial-state 'elpher-mode 'motion))
 
 
 ;;; Main start procedure
