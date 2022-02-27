@@ -1056,7 +1056,7 @@ longer needed for this session.
 
 The certificate will be marked as applying to all addresses with URLs
 starting with URL-PREFIX."
-  (let* ((file-base (make-temp-name "elpher"))
+  (let* ((file-base (make-temp-name ""))
          (key-file (concat temporary-file-directory file-base ".key"))
          (cert-file (concat temporary-file-directory file-base ".crt")))
     (elpher-generate-certificate file-base key-file cert-file url-prefix t)))
